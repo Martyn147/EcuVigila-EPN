@@ -1,4 +1,23 @@
 <resources>
     <string name="app_name">EcuVigila</string>
-    <string name="title_activity_maps">MapsActivity</string>
+    <string name="text_Home">Home</string>
+    <string name="text_Ajustes">Ajustes</string>
+    <string name="text_Mapa">Mapa de Eventos</string>
+    <string name="Inf_Emergencia">Información de Emergencia</string>
+    <string name="cont_Emergencia">Números de Emergencia</string>
+    <string name="text_Informacion">Información</string>
+    <string name="Ttxt_REvento">Reportar Evento</string>
+    <string name="text_logout">Cerrar Sesón</string>
+    <string name="text_evento">Eventos </string>
+    <string name="text_aInformativo">Crear Aviso Informativo </string>
+    <string name="text_Advertencia">Crear Advertencia</string>
+    <string name="text_Peligro">Advertir Peligro </string>
+    <string name="text_crearAlerta">Crear Alerta </string>
+
+    <string name="open_nav">Open Navigation Drawer</string>
+    <string name="close_nav">Close Navigation Drawer</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+
+
 </resources>
