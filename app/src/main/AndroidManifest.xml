@@ -27,23 +27,6 @@
         <meta-data
             android:name="com.google.android.geo.API_KEY"
             android:value="AIzaSyCL9eCt0e1c0GJ1NfVxgRIla9-NiH7rs50" />
-
-        <activity
-            android:name=".MapsActivity"
-            android:exported="false"
-            android:label="@string/title_activity_maps" />
-        <activity
-            android:name=".AjustesActivity"
-            android:exported="false" />
-        <activity
-            android:name=".NumerosEmergenciaActivity"
-            android:exported="false" />
-        <activity
-            android:name=".CrearAvisoActivity"
-            android:exported="false" />
-        <activity
-            android:name=".Informacion_de_emergencia"
-            android:exported="false" />
         <activity
             android:name=".MainActivity"
             android:exported="true" >

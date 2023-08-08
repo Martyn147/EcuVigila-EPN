@@ -1,6 +1,5 @@
 package com.example.ecuvigila;
 
-
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.app.AppCompatActivity;
@@ -43,34 +42,23 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
     @Override
     public boolean onNavigationItemSelected(@NonNull MenuItem item) {
-        switch (item.getItemId()) {
-            case R.id.nav_home:
-                getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new Home()).commit();
-                break;
 
-            case R.id.nav_map:
-                getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new Mapa()).commit();
-                break;
-
-            case R.id.nav_infEmergencia:
-                getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new InfoEmergencia()).commit();
-                break;
-
-            case R.id.nav_numeroEmergencia:
-                getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new ConEmergencia()).commit();
-                break;
-
-            case R.id.nav_Reportar:
-                getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new ReportarEvento()).commit();
-                break;
-            case R.id.btnAjustes:
-                getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new Ajustes()).commit();
-                break;
-
-            case R.id.nav_logout:
-                Toast.makeText(this, "Cerrar Sesión!", Toast.LENGTH_SHORT).show();
-                break;
+        if (item.getItemId() == R.id.nav_home) {
+            getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new Home()).commit();
+        } else if (item.getItemId() == R.id.nav_map) {
+            getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new Mapa()).commit();
+        } else if (item.getItemId() == R.id.nav_infEmergencia) {
+            getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new InfoEmergencia()).commit();
+        } else if (item.getItemId() == R.id.nav_numeroEmergencia) {
+            getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new ConEmergencia()).commit();
+        } else if (item.getItemId() == R.id.nav_Reportar) {
+            getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new ReportarEvento()).commit();
+        } else if (item.getItemId() == R.id.btnAjustes) {
+            getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new Ajustes()).commit();
+        } else if (item.getItemId() == R.id.nav_logout) {
+            Toast.makeText(this, "Cerrar Sesión!", Toast.LENGTH_SHORT).show();
         }
+
 
         drawerLayout.closeDrawer(GravityCompat.START);
         return true;
