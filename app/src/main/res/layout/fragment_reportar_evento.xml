@@ -5,10 +5,67 @@
     android:layout_height="match_parent"
     tools:context=".ReportarEvento">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+        android:orientation="vertical"
+        android:padding="16dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Nivel de peligro" />
+
+        <Spinner
+            android:id="@+id/spinner_nivel_peligro"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:entries="@array/nivel_peligro"
+            android:prompt="@string/seleccionar_nivel_peligro" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Detalles del evento" />
+
+        <Spinner
+            android:id="@+id/spinner_detalles"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:entries="@array/detalles_evento"
+            android:prompt="@string/seleccionar_detalles" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Comentario" />
+
+        <EditText
+            android:id="@+id/edit_text_comentario"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Escribe un comentario" />
+
+
+        <fragment
+            android:id="@+id/map"
+            android:name="com.google.android.gms.maps.SupportMapFragment"
+            android:layout_width="match_parent"
+            android:layout_height="300dp"
+            android:layout_marginTop="16dp"
+            android:layout_gravity="bottom" />
+
+
+
+        <Button
+            android:id="@+id/btn_guardar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Guardar en Firebase" />
+
+
+
+    </LinearLayout>
 
 </FrameLayout>
+

@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string-array name="nivel_peligro">
+        <item>Seguro</item>
+        <item>Medio</item>
+        <item>Alto</item>
+    </string-array>
+    <string-array name="detalles_evento">
+        <item>Policía</item>
+        <item>Asalto</item>
+        <item>Robo</item>
+        <item>Secuestro</item>
+        <item>Asesinato</item>
+        <item>Desaparecido</item>
+        <item>Accidente tránsito</item>
+    </string-array>
+</resources>

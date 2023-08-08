@@ -19,6 +19,8 @@
     <string name="close_nav">Close Navigation Drawer</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="seleccionar_nivel_peligro">Selecciona nivel de peligro</string>
+    <string name="seleccionar_detalles">Selecciona detalles del evento</string>
 
 
 </resources>
