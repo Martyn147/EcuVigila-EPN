@@ -6,21 +6,9 @@
     android:orientation="vertical">
 
     <TextView
-        android:id="@+id/tvNivelPeligro"
+        android:id="@+id/tvCorreo"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Nivel de peligro: " />
+        android:text="Correo: " />
 
-    <TextView
-        android:id="@+id/tvDetallesEvento"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Detalles del evento: " />
-
-    <TextView
-        android:id="@+id/tvComentario"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Comentario: " />
 </LinearLayout>
-
