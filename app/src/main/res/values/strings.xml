@@ -1,8 +1,8 @@
 <resources>
-    <string name="app_name">EcuVigila</string>
+    <string name="app_name">TrackMap</string>
     <string name="text_Home">Home</string>
     <string name="text_Ajustes">Ajustes</string>
-    <string name="text_Mapa">Mapa de Eventos</string>
+    <string name="text_Mapa">Mapa de Corredores</string>
     <string name="Inf_Emergencia">Información de Emergencia</string>
     <string name="cont_Emergencia">Números de Emergencia</string>
     <string name="text_Informacion">Información</string>

@@ -38,26 +38,16 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         toggle.syncState();
 
         if (savedInstanceState == null) {
-            getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new Home()).commit();
-            navigationView.setCheckedItem(R.id.nav_home);
+            getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new Mapa()).commit();
+            navigationView.setCheckedItem(R.id.nav_map);
         }
     }
 
     @Override
     public boolean onNavigationItemSelected(@NonNull MenuItem item) {
 
-        if (item.getItemId() == R.id.nav_home) {
-            getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new Home()).commit();
-        } else if (item.getItemId() == R.id.nav_map) {
+        if (item.getItemId() == R.id.nav_map) {
             getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new Mapa()).commit();
-        } else if (item.getItemId() == R.id.nav_infEmergencia) {
-            getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new InfoEmergencia()).commit();
-        } else if (item.getItemId() == R.id.nav_numeroEmergencia) {
-            getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new ConEmergencia()).commit();
-        } else if (item.getItemId() == R.id.nav_Reportar) {
-            getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new ReportarEvento()).commit();
-        } else if (item.getItemId() == R.id.btnAjustes) {
-            getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new Ajustes()).commit();
         } else if (item.getItemId() == R.id.nav_logout) {
             FirebaseAuth.getInstance().signOut();
             startActivity(new Intent(this, Login.class));

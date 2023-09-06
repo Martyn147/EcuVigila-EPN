@@ -8,38 +8,15 @@
         android:checkableBehavior="single">
 
         <item
-            android:id="@+id/nav_home"
-            android:icon="@drawable/baseline_home_24"
-            android:title="@string/text_Home" />
-
-        <item
             android:id="@+id/nav_map"
             android:icon="@drawable/baseline_map_24"
             android:title="@string/text_Mapa" />
-
-        <item
-            android:id="@+id/nav_infEmergencia"
-            android:icon="@drawable/baseline_medical_information_24"
-            android:title="@string/Inf_Emergencia" />
-
-        <item
-            android:id="@+id/nav_numeroEmergencia"
-            android:icon="@drawable/baseline_contact_emergency_24"
-            android:title="@string/cont_Emergencia" />
-        <item
-            android:id="@+id/nav_Reportar"
-            android:icon="@drawable/baseline_announcement_24"
-            android:title="@string/Ttxt_REvento" />
 
     </group>
     <item
         android:title="">
 
         <menu>
-            <item
-                android:id="@+id/btnAjustes"
-                android:icon="@drawable/baseline_settings_24"
-                android:title="@string/text_Ajustes" />
             <item
                 android:id="@+id/nav_logout"
                 android:icon="@drawable/baseline_exit_to_app_24"
