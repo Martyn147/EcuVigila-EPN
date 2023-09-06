@@ -87,7 +87,13 @@ public class Login extends AppCompatActivity {
             public void onComplete(@NonNull Task<AuthResult> task) {
                 if(task.isSuccessful()){
                     finish();
-                    startActivity(new Intent(Login.this, MainActivity.class));
+
+                    if(email.equals("ppc@gmail.com")){
+                        startActivity(new Intent(Login.this, GestionUsuarios.class));
+                    } else {
+                        startActivity(new Intent(Login.this, MainActivity.class));
+                    }
+
                     Toast.makeText(Login.this, "Bienvenido!", Toast.LENGTH_SHORT).show();
                 }
             }

@@ -1,12 +1,11 @@
 package com.example.ecuvigila;
 
+import androidx.appcompat.app.AppCompatActivity;
+
+import android.content.Intent;
 import android.os.Bundle;
 
-import androidx.fragment.app.Fragment;
-
-import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewGroup;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -29,35 +28,33 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
-import java.util.Objects;
 
-public class InfoEmergencia extends Fragment {
+public class GestionUsuarios extends AppCompatActivity {
 
     private DatabaseReference databaseReference;
     private RecyclerView recyclerView;
     private ArrayList<UsersItem> usersItemArrayList;
     private UsersRecyclerAdapter adapter;
-    private Button buttonAdd;
+    private Button buttonAdd, buttonLogout;
     private FirebaseAuth mAuth;
     private Context context;
-
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
-        View rootView = inflater.inflate(R.layout.fragment_info_emergencia, container, false);
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.fragment_info_emergencia);
 
-        context = getContext();
+        context = this;
 
         databaseReference = FirebaseDatabase.getInstance().getReference();
         mAuth = FirebaseAuth.getInstance();
 
-        recyclerView = rootView.findViewById(R.id.recyclerView);
+        recyclerView = findViewById(R.id.recyclerView);
         recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(new LinearLayoutManager(context));
 
         usersItemArrayList = new ArrayList<>();
 
-        buttonAdd = rootView.findViewById(R.id.buttonAdd);
+        buttonAdd = findViewById(R.id.buttonAdd);
         buttonAdd.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -66,9 +63,18 @@ public class InfoEmergencia extends Fragment {
             }
         });
 
-        readData();
+        buttonLogout = findViewById(R.id.buttonLogout);
 
-        return rootView;
+        buttonLogout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                FirebaseAuth.getInstance().signOut();
+                startActivity(new Intent(GestionUsuarios.this, Login.class));
+                finish();
+            }
+        });
+
+        readData();
     }
 
     private void readData() {

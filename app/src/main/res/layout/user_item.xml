@@ -11,28 +11,19 @@
         android:id="@+id/textName"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:text="Nombre"
         android:textColor="@android:color/white"
-        android:textStyle="bold"
         android:textSize="18sp"
-        android:text="Nombres"/>
+        android:textStyle="bold" />
 
     <TextView
-        android:id="@+id/textRelacion"
+        android:id="@+id/textCorreo"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:text="Correo"
         android:textColor="@android:color/white"
-        android:textStyle="bold"
         android:textSize="18sp"
-        android:text="Relación"/>
-
-    <TextView
-        android:id="@+id/textContTlf"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:textColor="@android:color/white"
-        android:textStyle="bold"
-        android:textSize="18sp"
-        android:text="Teléfono Contacto"/>
+        android:textStyle="bold" />
 
     <LinearLayout
         android:layout_width="match_parent"

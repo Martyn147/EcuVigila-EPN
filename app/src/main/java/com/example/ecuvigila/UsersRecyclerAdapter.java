@@ -51,14 +51,14 @@ public class UsersRecyclerAdapter extends RecyclerView.Adapter<UsersRecyclerAdap
         UsersItem users = usersItemArrayList.get(position);
 
         holder.textName.setText("Nombre: " + users.getUserName());
-        holder.textRelacion.setText("Relación: " + users.getUserRelacion());
-        holder.textContTlf.setText("Teléfono de Contacto de Emergencia: " + users.getUserContTlf());
+        holder.textCorreo.setText("Correo: " + users.getuserCorreo());
+        //holder.textPass.setText("Teléfono de Contacto de Emergencia: " + users.getuserPass());
 
         holder.buttonUpdate.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 ViewDialogUpdate viewDialogUpdate = new ViewDialogUpdate();
-                viewDialogUpdate.showDialog(context, users.getUserName(), users.getUserRelacion(), users.getUserContTlf());
+                viewDialogUpdate.showDialog(context, users.getUserName(), users.getuserCorreo(), users.getuserPass());
             }
         });
 
@@ -66,7 +66,7 @@ public class UsersRecyclerAdapter extends RecyclerView.Adapter<UsersRecyclerAdap
             @Override
             public void onClick(View view) {
                 ViewDialogConfirmDelete viewDialogConfirmDelete = new ViewDialogConfirmDelete();
-                viewDialogConfirmDelete.showDialog(context, users.getUserContTlf());
+                viewDialogConfirmDelete.showDialog(context, users.getUserName());
             }
         });
 
@@ -80,8 +80,8 @@ public class UsersRecyclerAdapter extends RecyclerView.Adapter<UsersRecyclerAdap
     public static class ViewHolder extends RecyclerView.ViewHolder {
 
         TextView textName;
-        TextView textRelacion;
-        TextView textContTlf;
+        TextView textCorreo;
+        TextView textPass;
         Button buttonDelete;
         Button buttonUpdate;
 
@@ -89,8 +89,8 @@ public class UsersRecyclerAdapter extends RecyclerView.Adapter<UsersRecyclerAdap
             super(itemView);
 
             textName = itemView.findViewById(R.id.textName);
-            textRelacion = itemView.findViewById(R.id.textRelacion);
-            textContTlf = itemView.findViewById(R.id.textContTlf);
+            textCorreo = itemView.findViewById(R.id.textCorreo);
+            textPass = itemView.findViewById(R.id.textPass);
 
             buttonDelete = itemView.findViewById(R.id.buttonDelete);
             buttonUpdate = itemView.findViewById(R.id.buttonUpdate);
@@ -98,19 +98,19 @@ public class UsersRecyclerAdapter extends RecyclerView.Adapter<UsersRecyclerAdap
     }
 
     public class ViewDialogUpdate {
-        public void showDialog(Context context, String name, String relacion, String contTlf) {
+        public void showDialog(Context context, String name, String correo, String pass) {
             final Dialog dialog = new Dialog(context);
             dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
             dialog.setCancelable(false);
             dialog.setContentView(R.layout.alert_dialog_add_new_user);
 
             EditText textName = dialog.findViewById(R.id.textName);
-            EditText textRelacion = dialog.findViewById(R.id.textRelacion);
-            EditText textContTlf = dialog.findViewById(R.id.textContTlf);
+            EditText textCorreo = dialog.findViewById(R.id.textCorreo);
+            EditText textPass = dialog.findViewById(R.id.textPass);
 
             textName.setText(name);
-            textRelacion.setText(relacion);
-            textContTlf.setText(contTlf);
+            textCorreo.setText(correo);
+            textPass.setText(pass);
 
 
             Button buttonUpdate = dialog.findViewById(R.id.buttonAdd);
@@ -130,26 +130,25 @@ public class UsersRecyclerAdapter extends RecyclerView.Adapter<UsersRecyclerAdap
                 public void onClick(View view) {
 
                     String newName = textName.getText().toString();
-                    String newRelacion = textRelacion.getText().toString();
-                    String newContTlf = textContTlf.getText().toString();
+                    String newCorreo = textCorreo.getText().toString();
+                    String newPass = textPass.getText().toString();
 
-                    if (newName.isEmpty() || newRelacion.isEmpty() || newContTlf.isEmpty()) {
+                    if (newName.isEmpty() || newCorreo.isEmpty() || newPass.isEmpty()) {
                         Toast.makeText(context, "Por favor, ingresar todos los datos...", Toast.LENGTH_SHORT).show();
                     } else {
 
-                        if (newName.equals(name) && newRelacion.equals(relacion) && newContTlf.equals(contTlf)) {
+                        if (newName.equals(name) && newCorreo.equals(correo) && newPass.equals(pass)) {
                             Toast.makeText(context, "Ningún dato ha cambiado", Toast.LENGTH_SHORT).show();
                         } else {
-                            DatabaseReference currentUserReference = databaseReference.child("USERS")
-                                    .child(Objects.requireNonNull(FirebaseAuth.getInstance().getCurrentUser()).getUid());
 
+                            DatabaseReference currentUserReference = databaseReference.child("USERS");
 
-                            currentUserReference.child(newContTlf).setValue(new UsersItem(newName, newRelacion, newContTlf))
+                            currentUserReference.child(newName).setValue(new UsersItem(newName, newCorreo, newPass))
                                     .addOnSuccessListener(new OnSuccessListener<Void>() {
                                         @Override
                                         public void onSuccess(Void aVoid) {
 
-                                            currentUserReference.child(contTlf).removeValue()
+                                            currentUserReference.child(name).removeValue()
                                                     .addOnSuccessListener(new OnSuccessListener<Void>() {
                                                         @Override
                                                         public void onSuccess(Void aVoid) {
@@ -188,7 +187,7 @@ public class UsersRecyclerAdapter extends RecyclerView.Adapter<UsersRecyclerAdap
 
 
     public class ViewDialogConfirmDelete {
-        public void showDialog(Context context, String contTlf) {
+        public void showDialog(Context context, String name) {
             final Dialog dialog = new Dialog(context);
             dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
             dialog.setCancelable(false);
@@ -207,8 +206,8 @@ public class UsersRecyclerAdapter extends RecyclerView.Adapter<UsersRecyclerAdap
             buttonDelete.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-
-                    databaseReference.child("USERS").child(Objects.requireNonNull(FirebaseAuth.getInstance().getCurrentUser()).getUid()).child(contTlf).removeValue()
+//                    databaseReference.child("USERS").child(Objects.requireNonNull(FirebaseAuth.getInstance().getCurrentUser()).getUid()).child(name).removeValue()
+                    databaseReference.child("USERS").child(name).removeValue()
                             .addOnSuccessListener(new OnSuccessListener<Void>() {
                                 @Override
                                 public void onSuccess(Void aVoid) {

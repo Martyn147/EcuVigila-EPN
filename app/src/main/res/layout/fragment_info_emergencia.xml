@@ -23,4 +23,13 @@
         android:textColor="@android:color/white"
         android:textStyle="bold" />
 
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/buttonLogout"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:background="@color/colorMenu"
+        android:text="Cerrar Sesión"
+        android:textColor="@android:color/white"
+        android:textStyle="bold" />
+
 </LinearLayout>

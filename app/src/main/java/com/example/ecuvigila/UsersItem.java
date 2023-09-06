@@ -2,25 +2,25 @@ package com.example.ecuvigila;
 
 public class UsersItem {
 
-    String userRelacion;
-    String userName;
-    String userContTlf;
+    private String userCorreo;
+    private String userName;
+    private String userPass;
 
     public UsersItem() {
     }
 
-    public UsersItem(String userName, String userRelacion, String userContTlf) {
-        this.userRelacion = userRelacion;
+    public UsersItem(String userName, String userCorreo, String userPass) {
+        this.userCorreo = userCorreo;
         this.userName = userName;
-        this.userContTlf = userContTlf;
+        this.userPass = userPass;
     }
 
-    public String getUserRelacion() {
-        return userRelacion;
+    public String getuserCorreo() {
+        return userCorreo;
     }
 
-    public void setUserRelacion(String userCedula) {
-        this.userRelacion = userCedula;
+    public void setuserCorreo(String userCorreo) {
+        this.userCorreo = userCorreo;
     }
 
     public String getUserName() {
@@ -32,12 +32,12 @@ public class UsersItem {
     }
 
 
-    public String getUserContTlf() {
-        return userContTlf;
+    public String getuserPass() {
+        return userPass;
     }
 
-    public void setUserContTlf(String userContTlf) {
-        this.userContTlf = userContTlf;
+    public void setuserPass(String userPass) {
+        this.userPass = userPass;
     }
 
 }
