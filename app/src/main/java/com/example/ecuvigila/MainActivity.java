@@ -4,6 +4,7 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
+import androidx.core.content.ContextCompat;
 import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 
@@ -22,8 +23,14 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+
+       // startService(new Intent(this, LocationUpdateService.class));
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+       // Intent intent = new Intent(this, LocationUpdateService.class);
+       // startService(intent);
 
         Toolbar toolbar = findViewById(R.id.toolbar1); //Ignore red line errors
         setSupportActionBar(toolbar);

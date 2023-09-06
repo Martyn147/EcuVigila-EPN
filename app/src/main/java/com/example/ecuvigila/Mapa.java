@@ -55,6 +55,9 @@ public class Mapa extends Fragment implements OnMapReadyCallback, GoogleMap.Info
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
+
+
+
         View view = inflater.inflate(R.layout.fragment_mapa, container, false);
 
         SupportMapFragment mapFragment = (SupportMapFragment) getChildFragmentManager().findFragmentById(R.id.map);
