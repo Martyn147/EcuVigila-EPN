@@ -41,22 +41,9 @@
             android:textColor="@android:color/white"
             android:textColorHint="@android:color/white"
             android:textSize="18sp"
-            android:textStyle="bold" />
-
-        <EditText
-            android:id="@+id/textContraseña"
-            android:layout_width="match_parent"
-            android:layout_height="40dp"
-            android:layout_gravity="center"
-            android:layout_margin="3dp"
-            android:background="@drawable/edittext_bg"
-            android:gravity="center"
-            android:hint="Contraseña"
-            android:padding="5dp"
-            android:textColor="@android:color/white"
-            android:textColorHint="@android:color/white"
-            android:textSize="18sp"
-            android:textStyle="bold" />
+            android:textStyle="bold"
+            android:enabled="false"
+            android:focusable="false"/>
 
         <EditText
             android:id="@+id/textRol"

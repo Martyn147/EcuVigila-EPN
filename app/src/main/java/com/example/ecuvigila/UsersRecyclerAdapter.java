@@ -18,12 +18,10 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
-import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
 import java.util.ArrayList;
-import java.util.Objects;
 
 public class UsersRecyclerAdapter extends RecyclerView.Adapter<UsersRecyclerAdapter.ViewHolder> {
 
@@ -52,13 +50,13 @@ public class UsersRecyclerAdapter extends RecyclerView.Adapter<UsersRecyclerAdap
 
         holder.textName.setText("Nombre: " + users.getUserName());
         holder.textCorreo.setText("Correo: " + users.getuserCorreo());
-        //holder.textPass.setText("Teléfono de Contacto de Emergencia: " + users.getuserPass());
+        holder.textRol.setText("Rol: " + users.getuserRol());
 
         holder.buttonUpdate.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 ViewDialogUpdate viewDialogUpdate = new ViewDialogUpdate();
-                viewDialogUpdate.showDialog(context, users.getUserName(), users.getuserCorreo(), users.getuserPass());
+                viewDialogUpdate.showDialog(context, users.getUserName(), users.getuserCorreo(), users.getuserRol());
             }
         });
 
@@ -81,7 +79,7 @@ public class UsersRecyclerAdapter extends RecyclerView.Adapter<UsersRecyclerAdap
 
         TextView textName;
         TextView textCorreo;
-        TextView textPass;
+        TextView textRol;
         Button buttonDelete;
         Button buttonUpdate;
 
@@ -90,7 +88,7 @@ public class UsersRecyclerAdapter extends RecyclerView.Adapter<UsersRecyclerAdap
 
             textName = itemView.findViewById(R.id.textName);
             textCorreo = itemView.findViewById(R.id.textCorreo);
-            textPass = itemView.findViewById(R.id.textPass);
+            textRol = itemView.findViewById(R.id.textRol);
 
             buttonDelete = itemView.findViewById(R.id.buttonDelete);
             buttonUpdate = itemView.findViewById(R.id.buttonUpdate);
@@ -98,19 +96,19 @@ public class UsersRecyclerAdapter extends RecyclerView.Adapter<UsersRecyclerAdap
     }
 
     public class ViewDialogUpdate {
-        public void showDialog(Context context, String name, String correo, String pass) {
+        public void showDialog(Context context, String name, String correo, String rol) {
             final Dialog dialog = new Dialog(context);
             dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
             dialog.setCancelable(false);
-            dialog.setContentView(R.layout.alert_dialog_add_new_user);
+            dialog.setContentView(R.layout.alert_dialog_update_user);
 
             EditText textName = dialog.findViewById(R.id.textName);
             EditText textCorreo = dialog.findViewById(R.id.textCorreo);
-            EditText textPass = dialog.findViewById(R.id.textPass);
+            EditText textRol = dialog.findViewById(R.id.textRol);
 
             textName.setText(name);
             textCorreo.setText(correo);
-            textPass.setText(pass);
+            textRol.setText(rol);
 
 
             Button buttonUpdate = dialog.findViewById(R.id.buttonAdd);
@@ -131,19 +129,19 @@ public class UsersRecyclerAdapter extends RecyclerView.Adapter<UsersRecyclerAdap
 
                     String newName = textName.getText().toString();
                     String newCorreo = textCorreo.getText().toString();
-                    String newPass = textPass.getText().toString();
+                    String newRol = textRol.getText().toString();
 
-                    if (newName.isEmpty() || newCorreo.isEmpty() || newPass.isEmpty()) {
+                    if (newName.isEmpty() || newCorreo.isEmpty() || newRol.isEmpty()) {
                         Toast.makeText(context, "Por favor, ingresar todos los datos...", Toast.LENGTH_SHORT).show();
                     } else {
 
-                        if (newName.equals(name) && newCorreo.equals(correo) && newPass.equals(pass)) {
+                        if (newName.equals(name) && newCorreo.equals(correo) && newRol.equals(rol)) {
                             Toast.makeText(context, "Ningún dato ha cambiado", Toast.LENGTH_SHORT).show();
                         } else {
 
                             DatabaseReference currentUserReference = databaseReference.child("USERS");
 
-                            currentUserReference.child(newName).setValue(new UsersItem(newName, newCorreo, newPass))
+                            currentUserReference.child(newName).setValue(new UsersItem(newName, newCorreo, newRol))
                                     .addOnSuccessListener(new OnSuccessListener<Void>() {
                                         @Override
                                         public void onSuccess(Void aVoid) {

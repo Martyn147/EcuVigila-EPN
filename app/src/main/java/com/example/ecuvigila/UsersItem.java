@@ -4,15 +4,15 @@ public class UsersItem {
 
     private String userCorreo;
     private String userName;
-    private String userPass;
+    private String userRol;
 
     public UsersItem() {
     }
 
-    public UsersItem(String userName, String userCorreo, String userPass) {
+    public UsersItem(String userName, String userCorreo, String userRol) {
         this.userCorreo = userCorreo;
         this.userName = userName;
-        this.userPass = userPass;
+        this.userRol = userRol;
     }
 
     public String getuserCorreo() {
@@ -32,12 +32,12 @@ public class UsersItem {
     }
 
 
-    public String getuserPass() {
-        return userPass;
+    public String getuserRol() {
+        return userRol;
     }
 
-    public void setuserPass(String userPass) {
-        this.userPass = userPass;
+    public void setuserRol(String userRol) {
+        this.userRol = userRol;
     }
 
 }

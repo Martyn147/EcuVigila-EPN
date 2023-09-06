@@ -29,7 +29,6 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
-import java.util.Objects;
 
 public class InfoEmergencia extends Fragment {
 
@@ -110,7 +109,7 @@ public class InfoEmergencia extends Fragment {
 
             EditText textName = dialog.findViewById(R.id.textName);
             EditText textCorreo = dialog.findViewById(R.id.textCorreo);
-            EditText textPass = dialog.findViewById(R.id.textPass);
+            EditText textPass = dialog.findViewById(R.id.textRol);
 
 
             Button buttonAdd = dialog.findViewById(R.id.buttonAdd);
