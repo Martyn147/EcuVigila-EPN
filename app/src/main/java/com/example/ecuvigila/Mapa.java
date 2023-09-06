@@ -200,7 +200,7 @@ public class Mapa extends Fragment implements OnMapReadyCallback, GoogleMap.Info
 
         if (correo != null) {
             TextView tvCorreo = view.findViewById(R.id.tvCorreo);
-            tvCorreo.setText("Correo: " + correo);
+            tvCorreo.setText("Usuario: " + correo);
         }
 
         return view;

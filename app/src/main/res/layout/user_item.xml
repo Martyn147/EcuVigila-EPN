@@ -25,6 +25,15 @@
         android:textSize="18sp"
         android:textStyle="bold" />
 
+    <TextView
+        android:id="@+id/textRol"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Rol"
+        android:textColor="@android:color/white"
+        android:textSize="18sp"
+        android:textStyle="bold" />
+
     <LinearLayout
         android:layout_width="match_parent"
         android:orientation="horizontal"

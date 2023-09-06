@@ -20,6 +20,10 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.DataSnapshot;
@@ -116,7 +120,8 @@ public class GestionUsuarios extends AppCompatActivity {
 
             EditText textName = dialog.findViewById(R.id.textName);
             EditText textCorreo = dialog.findViewById(R.id.textCorreo);
-            EditText textPass = dialog.findViewById(R.id.textPass);
+            EditText textPass = dialog.findViewById(R.id.textContraseña);
+            EditText textRol = dialog.findViewById(R.id.textRol);
 
 
             Button buttonAdd = dialog.findViewById(R.id.buttonAdd);
@@ -133,23 +138,26 @@ public class GestionUsuarios extends AppCompatActivity {
             buttonAdd.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-                    String name = textName.getText().toString();
-                    String correo = textCorreo.getText().toString();
-                    String pass = textPass.getText().toString();
+                    String name = textName.getText().toString().trim();
+                    String correo = textCorreo.getText().toString().trim();
+                    String pass = textPass.getText().toString().trim();
+                    String rol = textRol.getText().toString().trim();
 
-                    if (name.isEmpty() || correo.isEmpty() || pass.isEmpty()) {
+                    if (name.isEmpty() || correo.isEmpty() || rol.isEmpty() || pass.isEmpty()) {
                         Toast.makeText(context, "Por favor, ingrese todos los datos...", Toast.LENGTH_SHORT).show();
                     } else {
                         //String uid = Objects.requireNonNull(FirebaseAuth.getInstance().getCurrentUser()).getUid();
-                        DatabaseReference userReference = databaseReference.child("USERS").child(name);
+//                        DatabaseReference userReference = databaseReference.child("USERS").child(name);
 
                         //DatabaseReference newContactRef = userReference.push(); // Generate a unique key
 
-                        UsersItem contact = new UsersItem(name, correo, pass);
-                        userReference.setValue(contact);
+//                        UsersItem contact = new UsersItem(name, correo, rol);
+//                        userReference.setValue(contact);
                         //newContactRef.setValue(contact);
 
-                        Toast.makeText(context, "Información ingresada...", Toast.LENGTH_SHORT).show();
+                        registerUser(correo, pass, name, rol);
+
+                        Toast.makeText(context, "Usuario Ingresado!", Toast.LENGTH_SHORT).show();
                         dialog.dismiss();
                     }
                 }
@@ -160,5 +168,25 @@ public class GestionUsuarios extends AppCompatActivity {
             dialog.show();
 
         }
+    }
+
+    private void registerUser(String email, String pass, String name, String rol) {
+        mAuth.createUserWithEmailAndPassword(email, pass).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
+            @Override
+            public void onComplete(@NonNull Task<AuthResult> task) {
+                if(task.isSuccessful()){
+                    String uid = mAuth.getCurrentUser().getUid();
+                    DatabaseReference userReference = databaseReference.child("USERS").child(uid);
+                    UsersItem contact = new UsersItem(name, email, rol);
+                    userReference.setValue(contact);
+                    Toast.makeText(GestionUsuarios.this, "Usuario Ingresado!", Toast.LENGTH_SHORT).show();
+                }
+            }
+        }).addOnFailureListener(new OnFailureListener() {
+            @Override
+            public void onFailure(@NonNull Exception e) {
+                Toast.makeText(GestionUsuarios.this, "Error al crear cuenta...", Toast.LENGTH_SHORT).show();
+            }
+        });
     }
 }
