@@ -176,7 +176,7 @@ public class GestionUsuarios extends AppCompatActivity {
             public void onComplete(@NonNull Task<AuthResult> task) {
                 if(task.isSuccessful()){
                     String uid = mAuth.getCurrentUser().getUid();
-                    DatabaseReference userReference = databaseReference.child("USERS").child(uid);
+                    DatabaseReference userReference = databaseReference.child("USERS").child(name);
                     UsersItem contact = new UsersItem(name, email, rol);
                     userReference.setValue(contact);
                     Toast.makeText(GestionUsuarios.this, "Usuario Ingresado!", Toast.LENGTH_SHORT).show();
