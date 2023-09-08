@@ -35,4 +35,4 @@ Este proyecto de Android tiene como objetivo rastrear la ubicación del usuario 
 2. [Gestion de Usuarios](Gestión%20de%20Usuarios.md)
 4. Con una cuenta normal se tiene acceso al mapa.
 5. Puedes verte a ti mismo y a los demas usuarios conectados.
-6. Podras ver la informacion de cada usuario dando un tap en su pin.
+6. [Podras ver la informacion de cada usuario dando un tap en su pin.](Gestión%20de%20Usuarios.md)
