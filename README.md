@@ -32,6 +32,6 @@ Este proyecto de Android tiene como objetivo rastrear la ubicación del usuario 
 ## Logica de programacion
 
 1. La app tiene un perfil administrador que puede eliminar o crear usuarios que puedan accder.
-2. con una cuenta normal se tiene acceso al mapa.
-3. puedes verte a ti mismo y alos demas usuarios conectados.
-4. podras ver la informacion de cada usuario dando un tap en su pin.
+2. Con una cuenta normal se tiene acceso al mapa.
+3. Puedes verte a ti mismo y a los demas usuarios conectados.
+4. Podras ver la informacion de cada usuario dando un tap en su pin.
