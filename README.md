@@ -1,5 +1,7 @@
 # Proyecto de Tracking en Tiempo Real y segundo plano
 
+Integrantes: Martin Rosero, Jimy Calvo, Pedro Paez
+
 Este proyecto de Android tiene como objetivo rastrear la ubicación del usuario en tiempo real utilizando un servicio en segundo plano y almacenar los datos de ubicación en Firebase Realtime Database. El servicio en segundo plano garantiza que la aplicación continúe rastreando la ubicación incluso cuando se minimiza o se ejecuta en segundo plano.
 
 [![Watch the video](https://i.stack.imgur.com/Vp2cE.png)](https://youtu.be/dVbXzU22j24)
