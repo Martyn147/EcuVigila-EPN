@@ -31,10 +31,8 @@ Este proyecto de Android tiene como objetivo rastrear la ubicación del usuario 
 
 ## Logica de programacion
 
-1. La app tiene un perfil administrador que puede eliminar o crear usuarios que puedan accder.
-2. [Código de Mapa con Firebase y Google Maps](Lógica%20Mapa.md)
-3. [Gestion de Usuarios](Gestión%20de%20Usuarios.md)
-
+1. [La app tiene un perfil administrador que puede eliminar o crear usuarios que puedan accder.](Lógica%20Mapa.md)
+2. [Gestion de Usuarios](Gestión%20de%20Usuarios.md)
 4. Con una cuenta normal se tiene acceso al mapa.
 5. Puedes verte a ti mismo y a los demas usuarios conectados.
 6. Podras ver la informacion de cada usuario dando un tap en su pin.
